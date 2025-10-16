@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Mini Task Manager — Upgraded</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" role="application" aria-label="Smart Mini Task Manager">
+    <h1>
+      Super Task Manager
+      <span id="greeting"></span>
+    </h1>
+    <div id="datetime">--:--:-- | --/--/----</div>
+
+    <!-- ADD / Controls -->
+    <div class="controls" aria-hidden="false">
+      <input id="taskInput" placeholder="Add a task (or press 🎤 to speak)"/>
+      <select id="taskCategory" title="Category">
+        <option value="work">Work</option>
+        <option value="study">Study</option>
+        <option value="personal">Personal</option>
+      </select>
+      <select id="taskPriority" title="Priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <input id="taskDue" type="date" title="Due date"/>
+      <button id="addTaskBtn" class="add-btn">Add</button>
+    </div>
+
+    <!-- Filters / Sort / Voice -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="work">Work</button>
+      <button class="filter-btn" data-filter="study">Study</button>
+      <button class="filter-btn" data-filter="personal">Personal</button>
+      <button class="filter-btn" data-filter="today">Due Today</button>
+    </div>
+
+    <div class="search-filter">
+      <input id="searchInput" placeholder="Search tasks, type or press Enter to filter"/>
+      <select id="sortSelect" title="Sort">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="deadline">Deadline</option>
+        <option value="completed">Completed First</option>
+      </select>
+      <button id="voiceBtn" class="small-btn" title="Voice add">🎤</button>
+    </div>
+
+    <!-- Task list -->
+    <ul id="taskList" aria-live="polite"></ul>
+
+    <!-- Progress -->
+    <div class="progress-container" aria-hidden="false">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+    <div id="progressText">0% Completed</div>
+    <div id="message">Start adding tasks 🚀</div>
+    <div id="stats">
+      <div id="counts">Total: 0 | Completed: 0 | Pending: 0</div>
+      <div id="streak">Streak: 0 🔥</div>
+    </div>
+
+    <!-- Tools: export/import/clear/quote -->
+    <div class="tools">
+      <button id="clearAllBtn">Clear All</button>
+      <button id="exportBtn">Export JSON</button>
+      <input type="file" id="importFile" accept=".json"/>
+      <button id="quoteBtn">Random Quote</button>
+      <button id="toggleTheme">Toggle Dark</button>
+      <button id="notifyPermBtn">Enable Alerts</button>
+    </div>
+
+    <div id="tip" style="margin-top:8px;font-size:13px;color:#444"></div>
+    <div class="footer-note">Tip: Serve via Live Server for PWA features. Voice input works in Chrome.</div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
